@@ -32,7 +32,8 @@ def webhook():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if text == 'buttons':
+    message_text = event.message.text
+    if message_text == 'buttons':
         buttons_template = ButtonsTemplate(
             title='My buttons sample', text='Hello, my buttons', actions=[
                 URIAction(label='Go to line.me', uri='https://line.me'),
@@ -43,14 +44,14 @@ def handle_message(event):
         template_message = TemplateSendMessage(
             alt_text='Buttons alt text', template=buttons_template)
         line_bot_api.reply_message(event.reply_token, template_message)
-    elif text == 'dome': 
+    elif message_text == 'dome': 
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='ชล[th]'))
     else:
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text+'ชลไข่'))
+        TextSendMessage(text=message_text+'ชลไข่'))
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
