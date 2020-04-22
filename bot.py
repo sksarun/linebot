@@ -35,7 +35,7 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
        # f12dee5ab00209df6404acd8cfa57435
-        TextSendMessage(text='new'))
+        TextSendMessage(text=event.message.text+'ชลไข่'))
 
 
 if __name__ == "__main__":
