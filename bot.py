@@ -71,6 +71,10 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='tongpond'))
+    elif message_text == 'pond': 
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='pondtong'))
     else:
         line_bot_api.reply_message(
         event.reply_token,
