@@ -80,9 +80,10 @@ def handle_message(event):
     elif message_text == 'covid today':
         r = requests.get("https://covid19.th-stat.com/api/open/today")
         enrichresult = r.json()
+        finaltext = "วันที่:%s \n เพิ่มขึ้น:%d \n รวม:%d." % (enrichresult['UpdateDate'], enrichresult['NewConfirmed'],enrichresult['Confirmed'])
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="วันที่:"+enrichresult['UpdateDate']+"\n"+"เพิ่มขึ้น:"+enrichresult['NewConfirmed']+"\n"+"รวม:"+enrichresult['Confirmed']))
+        TextSendMessage(text=finaltext))
     else:
         translator = Translator()
         trans_text = translator.translate(message_text, dest='th')
