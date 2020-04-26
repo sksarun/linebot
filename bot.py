@@ -81,7 +81,7 @@ def handle_message(event):
         r = requests.get("https://covid19.th-stat.com/api/open/today")
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='Status ='+r.content))
+        TextSendMessage(text=r.content.Confirmed))
     else:
         translator = Translator()
         trans_text = translator.translate(message_text, dest='th')
