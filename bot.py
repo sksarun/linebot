@@ -82,7 +82,7 @@ def handle_message(event):
         enrichresult = r.json()
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="วันที่"+enrichresult.UpdateDate+"\n"+"เพิ่มขึ้น:"+enrichresult.NewConfirmed+"\n"+"รวม:"+enrichresult.Confirmed))
+        TextSendMessage(text="วันที่:"+enrichresult['UpdateDate']+"\n"+"เพิ่มขึ้น:"+enrichresult['NewConfirmed']+"\n"+"รวม:"+enrichresult['Confirmed']))
     else:
         translator = Translator()
         trans_text = translator.translate(message_text, dest='th')
