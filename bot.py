@@ -81,7 +81,7 @@ def handle_message(event):
         trans_text = translator.translate('message_text', dest='th')
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=trans_text))
+        TextSendMessage(text=trans_text.text))
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
