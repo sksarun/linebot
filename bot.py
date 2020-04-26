@@ -21,6 +21,7 @@ from linebot.models import (
     TextComponent, SpacerComponent, IconComponent, ButtonComponent,
     SeparatorComponent, QuickReply, QuickReplyButton,
     ImageSendMessage)
+from googletrans import Translator
 
 app = Flask(__name__)
 
@@ -76,9 +77,11 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text='pondtong'))
     else:
+        translator = Translator()
+        trans_text = translator.translate('message_text', dest='th')
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=message_text+'ชลไข่'))
+        TextSendMessage(text=trans_text))
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_location_message(event):
