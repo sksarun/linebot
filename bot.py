@@ -78,7 +78,7 @@ def handle_message(event):
         TextSendMessage(text='pondtong'))
     else:
         translator = Translator()
-        trans_text = translator.translate('message_text', dest='th')
+        trans_text = translator.translate(message_text, dest='th')
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=trans_text.text))
