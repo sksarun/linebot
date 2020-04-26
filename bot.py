@@ -79,9 +79,10 @@ def handle_message(event):
         TextSendMessage(text='pondtong'))
     elif message_text == 'covid today':
         r = requests.get("https://covid19.th-stat.com/api/open/today")
+        enrichresult = response.json()
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=r.content.Confirmed))
+        TextSendMessage(text=enrichresult.Confirmed))
     else:
         translator = Translator()
         trans_text = translator.translate(message_text, dest='th')
