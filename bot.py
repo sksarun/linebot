@@ -78,6 +78,7 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text='pondtong'))
     elif message_text == 'covid today':
+        # heroku logs --app=lucyassistance
         r = requests.get("https://covid19.th-stat.com/api/open/today")
         enrichresult = r.json()
         finaltext = "วันที่:%s \n เพิ่มขึ้น:%d \n รวม:%d." % (enrichresult['UpdateDate'], enrichresult['NewConfirmed'],enrichresult['Confirmed'])
