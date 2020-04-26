@@ -22,6 +22,7 @@ from linebot.models import (
     SeparatorComponent, QuickReply, QuickReplyButton,
     ImageSendMessage)
 from googletrans import Translator
+import requests 
 
 app = Flask(__name__)
 
@@ -76,6 +77,11 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='pondtong'))
+    elif message_text == 'covid today':
+        r = requests.get("https://covid19.th-stat.com/api/open/today")
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='Status ='+r.content))
     else:
         translator = Translator()
         trans_text = translator.translate(message_text, dest='th')
