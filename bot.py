@@ -85,7 +85,12 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=finaltext))
-    else:
+    elif message_text == 'covid chart':
+        image_message = ImageSendMessage(
+         original_content_url='https://www.cs.umd.edu/~aporter/Tmp/bee.jpg',
+         preview_image_url='https://www.cs.umd.edu/~aporter/Tmp/bee.jpg'
+            )
+    else:     
         translator = Translator()
         trans_text = translator.translate(message_text, dest='th')
         line_bot_api.reply_message(
