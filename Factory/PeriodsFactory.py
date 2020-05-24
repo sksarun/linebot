@@ -12,9 +12,9 @@ class PeriodsFactory:
         self.periods.append(Period(5,0,0,20,22))
 
     def getPeriods(self):
-        return periods
+        return self.periods
     def desc(self):
         desc = ""
-        for i in range(periods):
+        for i in range(self.periods):
             desc += i.description() + "\n"
         return desc
