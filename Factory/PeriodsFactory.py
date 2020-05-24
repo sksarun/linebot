@@ -15,6 +15,6 @@ class PeriodsFactory:
         return self.periods
     def desc(self):
         desc = ""
-        for i in range(self.periods):
+        for i in self.periods :
             desc += i.description() + "\n"
         return desc
