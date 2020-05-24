@@ -66,18 +66,6 @@ def handle_message(event):
         template_message = TemplateSendMessage(
             alt_text='Buttons alt text', template=buttons_template)
         line_bot_api.reply_message(event.reply_token, template_message)
-    elif message_text == 'dome': 
-        line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='ชล[th]'))
-    elif message_text == 'tong': 
-        line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='tongpond'))
-    elif message_text == 'pond': 
-        line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='pondtong'))
     elif message_text == 'covid today':
         # heroku logs --app=lucyassistance
         r = requests.get("https://covid19.th-stat.com/api/open/today")
