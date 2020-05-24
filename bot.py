@@ -1,4 +1,5 @@
 from flask import Flask, request, abort
+from Factory.PeriodsFactory import PeriodsFactory
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -85,6 +86,9 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=finaltext))
+    elif message_text == 'pondperiod':
+        period_fac = PeriodFactory()
+        TextSendMessage(text=period_fac.desc())
     elif message_text == 'covid chart':
         image_message = ImageSendMessage(
          original_content_url='https://www.cs.umd.edu/~aporter/Tmp/bee.jpg',
