@@ -96,11 +96,10 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,
         image_message)
-    elif message_text == 'imagesearch':
-  
+    elif  "imagesearch"  in message_text: 
+        l = message_text.split()
         response = simp.simple_image_download
-        result = response().urls('bear', 5)
-        print(result)
+        result = response().urls(l[1], 1)
         for i in result:
             image_message = ImageSendMessage(
             original_content_url=i,
