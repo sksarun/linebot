@@ -95,9 +95,14 @@ def handle_message(event):
         response = simp.simple_image_download
         result = response().urls('bear', 5)
         print(result)
-        line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=result))
+        for i in result:
+            image_message = ImageSendMessage(
+            original_content_url=i,
+            preview_image_url=i
+            )
+            line_bot_api.reply_message(
+            event.reply_token,
+            image_message)
     else:     
         translator = Translator()
         trans_text = translator.translate(message_text, dest='th')
