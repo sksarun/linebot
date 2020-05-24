@@ -86,6 +86,9 @@ def handle_message(event):
          original_content_url='https://www.cs.umd.edu/~aporter/Tmp/bee.jpg',
          preview_image_url='https://www.cs.umd.edu/~aporter/Tmp/bee.jpg'
             )
+        line_bot_api.reply_message(
+        event.reply_token,
+        image_message)
     else:     
         translator = Translator()
         trans_text = translator.translate(message_text, dest='th')
