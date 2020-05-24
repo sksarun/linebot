@@ -24,7 +24,7 @@ from linebot.models import (
     ImageSendMessage)
 from googletrans import Translator
 import requests 
-from google_images_download import google_images_download
+from simple_image_download import simple_image_download as simp
 
 app = Flask(__name__)
 
@@ -92,12 +92,12 @@ def handle_message(event):
         image_message)
     elif message_text == 'imagesearch':
   
-        #instantiate the class
-        response = google_images_download.googleimagesdownload()
-        arguments = {"keywords":"flowers","limit":5,"print_urls":True}
-        paths = response.download(arguments)
-        #print complete paths to the downloaded images
-        print(paths)
+        response = simp.simple_image_download
+        result = response().urls('bear', 5)
+        print(result)
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=result))
     else:     
         translator = Translator()
         trans_text = translator.translate(message_text, dest='th')
