@@ -13,5 +13,5 @@ class Period:
 
     def description(self):
         desc_str = "Month:%d PeriodStart:%d PeriodEnd:%d OvulationStartdate:%d OvulationEnddate:%d \n"%(self.month,self.periodstart,self.periodend,self.ovulationstart,self.ovulationend)
-
+        return desc_str
         

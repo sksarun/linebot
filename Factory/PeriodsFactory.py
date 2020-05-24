@@ -1,4 +1,4 @@
-import model.Period
+
 from model.Period import Period
 class PeriodsFactory:
     
@@ -18,3 +18,6 @@ class PeriodsFactory:
         for i in self.periods :
             desc += i.description() 
         return desc
+
+#periodFac = PeriodsFactory()
+#print(periodFac.desc())
