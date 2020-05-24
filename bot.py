@@ -87,7 +87,7 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text=finaltext))
     elif message_text == 'pondperiod':
-        period_fac = PeriodFactory()
+        period_fac = PeriodsFactory()
         TextSendMessage(text=period_fac.desc())
     elif message_text == 'covid chart':
         image_message = ImageSendMessage(
