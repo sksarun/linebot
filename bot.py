@@ -77,8 +77,10 @@ def handle_message(event):
     elif message_text == 'pondperiod':
         period_fac = PeriodsFactory()
         description = period_fac.desc()
-        print(description)
-        TextSendMessage(text="hello")
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=description))
+
     elif message_text == 'covid chart':
         image_message = ImageSendMessage(
          original_content_url='https://www.cs.umd.edu/~aporter/Tmp/bee.jpg',
