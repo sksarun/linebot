@@ -87,7 +87,7 @@ def handle_message(event):
          preview_image_url='https://i.ibb.co/h8j7dcP/S-88645640.jpg'
         )
         line_bot_api.reply_message(
-        event.reply_token,
+        event.reply_token,  
         image_message)
     elif message_text == 'covid chart':
         image_message = ImageSendMessage(
