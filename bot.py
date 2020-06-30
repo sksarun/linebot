@@ -89,6 +89,10 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,  
         image_message)
+    elif message_text == 'itenary':
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='test'))
     elif message_text == 'covid chart':
         image_message = ImageSendMessage(
          original_content_url='https://www.cs.umd.edu/~aporter/Tmp/bee.jpg',
